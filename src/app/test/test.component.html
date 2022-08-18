@@ -1,0 +1,66 @@
+<h3>{{"Hello"+name}}</h3>
+<button (click)="clickEvent()">Send Event To Parent</button>
+
+<h2>ngIf</h2>
+
+<h3 *ngIf="displayName">Satyaki Saha</h3>
+
+<h3 *ngIf="displayName; else elseBlock">Rima Kar</h3>
+<ng-template #elseBlock>
+    <h3>
+        Name is Hidden
+    </h3>
+</ng-template>
+
+<div *ngIf="displayName; then thenBlock; else elseBlock1"></div>
+<ng-template #thenBlock>
+    <h3>
+        Arnab Banik
+    </h3>
+</ng-template>
+<ng-template #elseBlock1>
+    <h3>
+        Hidden
+    </h3>
+</ng-template>
+<hr>
+
+<h2>ngSwitch</h2>
+<div [ngSwitch]="color">
+    <div [class]="redClass" *ngSwitchCase="'red'">You picked red Color</div>
+    <div [class]="blueClass" *ngSwitchCase="'blue'">You picked red Color</div>
+    <div *ngSwitchDefault>Pick Again</div>
+</div>
+<hr>
+
+<h2>ngFor</h2>
+
+<h3>Basic</h3>
+<div *ngFor="let color of colors">
+    <h4>{{color}}</h4>
+</div>
+
+<h3>With Index</h3>
+<div *ngFor="let color of colors,index as i">
+    <h4>{{i}} {{color}}</h4>
+</div>
+
+<h3>Identifying First Element</h3>
+<div *ngFor="let color of colors,first as f">
+    <h4>{{f}} {{color}}</h4>
+</div>
+
+<h3>Identifying Last Element</h3>
+<div *ngFor="let color of colors,last as l">
+    <h4>{{l}} {{color}}</h4>
+</div>
+
+<h3>Odd Indexed Items </h3>
+<div *ngFor="let color of colors,odd as o">
+    <h4>{{o}} {{color}}</h4>
+</div>
+
+<h3>Even Indexed Items </h3>
+<div *ngFor="let color of colors,even as e">
+    <h4>{{e}} {{color}}</h4>
+</div>
